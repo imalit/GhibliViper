@@ -21,9 +21,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             let urlString = "https://ghibliapi.herokuapp.com/films"
-            let interactor = GhibliHomeInteractor(urlString: urlString)
+            let service = GhibliService(urlString: urlString)
+            let interactor = GhibliHomeInteractor(service: service)
             let presenter = GhibliHomePresenter(interactor: interactor)
-            GhibliHomeView(presenter: presenter)
+            GhibliHomeView(presenter: presenter, state: .all)
         }
     }
 }

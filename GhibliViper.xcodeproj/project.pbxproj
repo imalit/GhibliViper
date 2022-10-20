@@ -17,6 +17,7 @@
 		E080729929006563005AF2E2 /* GhibliHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080729829006563005AF2E2 /* GhibliHomePresenter.swift */; };
 		E080729B290065BE005AF2E2 /* GhibliHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080729A290065BE005AF2E2 /* GhibliHomeInteractor.swift */; };
 		E080729D290065E4005AF2E2 /* GhibliGlobalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080729C290065E4005AF2E2 /* GhibliGlobalEntity.swift */; };
+		E099C1D72901CBFB00343CCB /* GhibliService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099C1D62901CBFB00343CCB /* GhibliService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		E080729829006563005AF2E2 /* GhibliHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomePresenter.swift; sourceTree = "<group>"; };
 		E080729A290065BE005AF2E2 /* GhibliHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeInteractor.swift; sourceTree = "<group>"; };
 		E080729C290065E4005AF2E2 /* GhibliGlobalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliGlobalEntity.swift; sourceTree = "<group>"; };
+		E099C1D62901CBFB00343CCB /* GhibliService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				E0807270290064EE005AF2E2 /* Assets.xcassets */,
 				E0807272290064EE005AF2E2 /* Preview Content */,
 				E080729C290065E4005AF2E2 /* GhibliGlobalEntity.swift */,
+				E099C1D62901CBFB00343CCB /* GhibliService.swift */,
 			);
 			path = GhibliViper;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				E080729D290065E4005AF2E2 /* GhibliGlobalEntity.swift in Sources */,
 				E080726F290064ED005AF2E2 /* GhibliHomeView.swift in Sources */,
 				E080726D290064ED005AF2E2 /* GhibliViperApp.swift in Sources */,
+				E099C1D72901CBFB00343CCB /* GhibliService.swift in Sources */,
 				E080729929006563005AF2E2 /* GhibliHomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

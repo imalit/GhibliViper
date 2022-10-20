@@ -8,35 +8,58 @@
 import Foundation
 import Combine
 
-protocol ServiceProtocol {
-    var session: URLSession { get set }
-    func fetchMovies<T: Decodable>(urlString: String) -> AnyPublisher<T, Error>
-}
-
 protocol GhibliHomeInteractorProtocol {
-    var urlString: String { get set }
+    var service: ServiceProtocol { get set }
+    func fetchMovies(viewState: ViewState) -> AnyPublisher<[PersonalizedMovie], Never>
 }
 
 class GhibliHomeInteractor: GhibliHomeInteractorProtocol {
-    var urlString: String
-    var session: URLSession
+    var service: ServiceProtocol
+    private var personalizedMovies = [PersonalizedMovie]()
+//    private var filteredMovies = [PersonalizedMovie]()
+    private var cancellables = Set<AnyCancellable>()
     
-    init(urlString: String, session: URLSession = URLSession.shared) {
-        self.urlString = urlString
-        self.session = session
+    init(service: ServiceProtocol) {
+        self.service = service
+    }
+    
+    func fetchMovies(viewState: ViewState) -> AnyPublisher<[PersonalizedMovie], Never> {
+        service.fetchMovies()
+            .map { self.setPersonalizedData(movies: $0) }
+            .replaceError(with: [])
+            .eraseToAnyPublisher()
+    }
+    
+//    func filterMovies(viewState: ViewState) -> [PersonalizedMovie] {
+//        switch viewState {
+//        case .all:
+//            return personalizedMovies
+//        case .toWatch:
+//            return personalizedMovies.filter{ $0.state == .toWatch }
+//        case .watched:
+//            return personalizedMovies.filter{ $0.state == .watched }
+//        case .none:
+//            return [PersonalizedMovie]()
+//        }
+//    }
+    
+//    func refreshView() {
+//        min = 0
+//        scrollableMovies = []
+//        fetchMore()
+//    }
+}
+
+private extension GhibliHomeInteractor {
+    private func setPersonalizedData(movies: Ghibli) -> [PersonalizedMovie] {
+        for movie in movies {
+            let personalizedMovie = PersonalizedMovie(
+                movie: movie,
+                state: .none
+            )
+            personalizedMovies.append(personalizedMovie)
+        }
+        return personalizedMovies
     }
 }
 
-extension GhibliHomeInteractor: ServiceProtocol {
-    func fetchMovies<T>(urlString: String) -> AnyPublisher<T, Error> where T : Decodable {
-        guard let url = URL(string: urlString) else {
-            fatalError("Invalid URL")
-        }
-        
-        return session.dataTaskPublisher(for: url)
-            .receive(on: RunLoop.main)
-            .map(\.data)
-            .decode(type: T.self, decoder: JSONDecoder())
-            .eraseToAnyPublisher()
-    }
-}

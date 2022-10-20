@@ -40,11 +40,13 @@ struct GhibliElement: Codable {
 
 typealias Ghibli = [GhibliElement]
 
-class PersonalizedMovie {
+class PersonalizedMovie: Identifiable {
     let ghibliMovie: GhibliElement
+    let id: String
     var state: MovieState
     
     init(movie: GhibliElement, state: MovieState) {
+        self.id = movie.id
         self.ghibliMovie = movie
         self.state = state
     }

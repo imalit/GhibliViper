@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum MovieState: Equatable {
     case watched, toWatch, none
@@ -17,16 +18,23 @@ enum ViewState {
 
 protocol GhibliHomePresenterProtocol {
     var interactor: GhibliHomeInteractorProtocol { get set }
+    func fetchMovies(viewState: ViewState)
 }
 
-class GhibliHomePresenter: GhibliHomePresenterProtocol {
+class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
     var interactor: GhibliHomeInteractorProtocol
+    @Published var movies = [PersonalizedMovie]()
+    private var cancellables = Set<AnyCancellable>()
     
     init(interactor: GhibliHomeInteractorProtocol) {
         self.interactor = interactor
     }
-}
-
-extension GhibliHomePresenter: ObservableObject {
     
+    func fetchMovies(viewState: ViewState) {
+        interactor.fetchMovies(viewState: viewState).sink(
+            receiveValue: { [weak self] personalizedMovies in
+                self?.movies = personalizedMovies
+            }
+        ).store(in: &cancellables)
+    }
 }
