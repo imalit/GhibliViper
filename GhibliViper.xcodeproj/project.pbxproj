@@ -18,6 +18,9 @@
 		E080729B290065BE005AF2E2 /* GhibliHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080729A290065BE005AF2E2 /* GhibliHomeInteractor.swift */; };
 		E080729D290065E4005AF2E2 /* GhibliGlobalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080729C290065E4005AF2E2 /* GhibliGlobalEntity.swift */; };
 		E099C1D72901CBFB00343CCB /* GhibliService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099C1D62901CBFB00343CCB /* GhibliService.swift */; };
+		E09B19F32902DC72005AB006 /* GhibliHomeListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09B19F22902DC72005AB006 /* GhibliHomeListCellView.swift */; };
+		E09B19F52902DCCD005AB006 /* GhibliHomeListCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09B19F42902DCCD005AB006 /* GhibliHomeListCellPresenter.swift */; };
+		E09B19F72902DD96005AB006 /* GhibliHomeListCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09B19F62902DD96005AB006 /* GhibliHomeListCellInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		E080729A290065BE005AF2E2 /* GhibliHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeInteractor.swift; sourceTree = "<group>"; };
 		E080729C290065E4005AF2E2 /* GhibliGlobalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliGlobalEntity.swift; sourceTree = "<group>"; };
 		E099C1D62901CBFB00343CCB /* GhibliService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliService.swift; sourceTree = "<group>"; };
+		E09B19F22902DC72005AB006 /* GhibliHomeListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeListCellView.swift; sourceTree = "<group>"; };
+		E09B19F42902DCCD005AB006 /* GhibliHomeListCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeListCellPresenter.swift; sourceTree = "<group>"; };
+		E09B19F62902DD96005AB006 /* GhibliHomeListCellInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeListCellInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		E080726B290064ED005AF2E2 /* GhibliViper */ = {
 			isa = PBXGroup;
 			children = (
+				E09B19F12902DC54005AB006 /* GhibliHomeListCellModule */,
 				E080729629006523005AF2E2 /* GhibliHomeModule */,
 				E080726C290064ED005AF2E2 /* GhibliViperApp.swift */,
 				E0807270290064EE005AF2E2 /* Assets.xcassets */,
@@ -145,6 +152,16 @@
 				E080729A290065BE005AF2E2 /* GhibliHomeInteractor.swift */,
 			);
 			path = GhibliHomeModule;
+			sourceTree = "<group>";
+		};
+		E09B19F12902DC54005AB006 /* GhibliHomeListCellModule */ = {
+			isa = PBXGroup;
+			children = (
+				E09B19F22902DC72005AB006 /* GhibliHomeListCellView.swift */,
+				E09B19F42902DCCD005AB006 /* GhibliHomeListCellPresenter.swift */,
+				E09B19F62902DD96005AB006 /* GhibliHomeListCellInteractor.swift */,
+			);
+			path = GhibliHomeListCellModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09B19F72902DD96005AB006 /* GhibliHomeListCellInteractor.swift in Sources */,
+				E09B19F52902DCCD005AB006 /* GhibliHomeListCellPresenter.swift in Sources */,
+				E09B19F32902DC72005AB006 /* GhibliHomeListCellView.swift in Sources */,
 				E080729B290065BE005AF2E2 /* GhibliHomeInteractor.swift in Sources */,
 				E080729D290065E4005AF2E2 /* GhibliGlobalEntity.swift in Sources */,
 				E080726F290064ED005AF2E2 /* GhibliHomeView.swift in Sources */,

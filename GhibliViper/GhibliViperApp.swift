@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 @main
 struct GhibliViperApp: App {
     var body: some Scene {
@@ -16,6 +17,7 @@ struct GhibliViperApp: App {
     }
 }
 
+@available(iOS 15.0, *)
 struct ContentView: View {
     
     var body: some View {
