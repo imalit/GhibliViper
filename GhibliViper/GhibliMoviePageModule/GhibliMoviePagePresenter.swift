@@ -22,4 +22,8 @@ class GhibliMoviePagePresenter: GhibliMoviePagePresenterProtocol, ObservableObje
     func getData() -> PersonalizedMovie {
         return interactor.data
     }
+    
+    func setState(movieState: MovieState) {
+        interactor.setState(movieState: movieState)
+    }
 }

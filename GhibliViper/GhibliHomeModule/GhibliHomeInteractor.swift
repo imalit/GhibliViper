@@ -10,44 +10,35 @@ import Combine
 
 protocol GhibliHomeInteractorProtocol {
     var service: ServiceProtocol { get set }
-    func fetchMovies(viewState: ViewState) -> AnyPublisher<[PersonalizedMovie], Never>
+    func fetchMovies() -> AnyPublisher<[PersonalizedMovie], Never>
+    func getMovies(movieState: MovieState?) -> [PersonalizedMovie]
 }
 
 class GhibliHomeInteractor: GhibliHomeInteractorProtocol {
     var service: ServiceProtocol
     private var personalizedMovies = [PersonalizedMovie]()
-//    private var filteredMovies = [PersonalizedMovie]()
     private var cancellables = Set<AnyCancellable>()
     
     init(service: ServiceProtocol) {
         self.service = service
     }
     
-    func fetchMovies(viewState: ViewState) -> AnyPublisher<[PersonalizedMovie], Never> {
+    func fetchMovies() -> AnyPublisher<[PersonalizedMovie], Never> {
         service.fetchMovies()
             .map { self.setPersonalizedData(movies: $0) }
             .replaceError(with: [])
             .eraseToAnyPublisher()
     }
     
-//    func filterMovies(viewState: ViewState) -> [PersonalizedMovie] {
-//        switch viewState {
-//        case .all:
-//            return personalizedMovies
-//        case .toWatch:
-//            return personalizedMovies.filter{ $0.state == .toWatch }
-//        case .watched:
-//            return personalizedMovies.filter{ $0.state == .watched }
-//        case .none:
-//            return [PersonalizedMovie]()
-//        }
-//    }
-    
-//    func refreshView() {
-//        min = 0
-//        scrollableMovies = []
-//        fetchMore()
-//    }
+    func getMovies(movieState: MovieState?) -> [PersonalizedMovie] {
+        guard let movieState = movieState else {
+            return personalizedMovies
+        }
+        
+        return personalizedMovies.filter {
+            $0.state == movieState
+        }
+    }
 }
 
 private extension GhibliHomeInteractor {

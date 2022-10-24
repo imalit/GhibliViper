@@ -14,6 +14,22 @@ struct GhibliHomeView: View {
     
     var body: some View {
         List {
+            Text("Title Here")
+                .font(.title)
+                .frame(maxWidth: .infinity, alignment: .center)
+            
+            HStack {
+                Text("All").onTapGesture {
+                    presenter.refreshView(viewState: .all)
+                }
+                 Text("To Watch").onTapGesture {
+                     presenter.refreshView(viewState: .toWatch)
+                 }
+                 Text("Watched").onTapGesture {
+                     presenter.refreshView(viewState: .watched)
+                 }
+            }
+            
             ForEach(presenter.movies) { movie in
                 presenter.linkBuilder(movie: movie) {
                     let interactor = GhibliHomeListCellInteractor(data: movie)
@@ -22,7 +38,7 @@ struct GhibliHomeView: View {
                 }
             }
         }.onAppear{
-            presenter.fetchMovies(viewState: .all)
+            presenter.fetchMovies()
         }
     }
 }

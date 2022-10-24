@@ -17,6 +17,6 @@ class GhibliHomeRouter { //: GhibliHomeRouterProtocol {
     func routeToPage(data: PersonalizedMovie) -> some View {
         let interactor = GhibliMoviePageInteractor(data: data)
         let presenter = GhibliMoviePagePresenter(interactor: interactor)
-        return GhibliMoviePageView(presenter: presenter)
+        return GhibliMoviePageView(presenter: presenter, movieState: data.state)
     }
 }

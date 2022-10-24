@@ -9,6 +9,7 @@ import Foundation
 
 protocol GhibliMoviePageInteractorProtocol {
     var data: PersonalizedMovie { get set }
+    func setState(movieState: MovieState)
 }
 
 class GhibliMoviePageInteractor: GhibliMoviePageInteractorProtocol {
@@ -16,5 +17,9 @@ class GhibliMoviePageInteractor: GhibliMoviePageInteractorProtocol {
     
     init(data: PersonalizedMovie) {
         self.data = data
+    }
+    
+    func setState(movieState: MovieState) {
+        data.state = movieState
     }
 }

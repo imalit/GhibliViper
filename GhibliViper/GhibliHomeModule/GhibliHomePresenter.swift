@@ -21,7 +21,7 @@ enum ViewState {
 protocol GhibliHomePresenterProtocol {
     var interactor: GhibliHomeInteractorProtocol { get set }
     var router: GhibliHomeRouter { get set }
-    func fetchMovies(viewState: ViewState)
+    func fetchMovies()
 }
 @available(iOS 15.0, *)
 class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
@@ -29,18 +29,35 @@ class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
     var interactor: GhibliHomeInteractorProtocol
     @Published var movies = [PersonalizedMovie]()
     private var cancellables = Set<AnyCancellable>()
+    private var viewState = ViewState.all
     
     init(interactor: GhibliHomeInteractorProtocol, router: GhibliHomeRouter) {
         self.interactor = interactor
         self.router = router
     }
     
-    func fetchMovies(viewState: ViewState) {
-        interactor.fetchMovies(viewState: viewState).sink(
-            receiveValue: { [weak self] personalizedMovies in
-                self?.movies = personalizedMovies
-            }
-        ).store(in: &cancellables)
+    func fetchMovies() {
+        if movies.isEmpty {
+            interactor.fetchMovies().sink(
+                receiveValue: { [weak self] personalizedMovies in
+                    self?.movies = personalizedMovies
+                }
+            ).store(in: &cancellables)
+        } else {
+            refreshView(viewState: viewState)
+        }
+    }
+    
+    func refreshView(viewState: ViewState) {
+        self.viewState = viewState
+        switch viewState {
+        case .all:
+            movies = interactor.getMovies(movieState: nil)
+        case .toWatch:
+            movies = interactor.getMovies(movieState: .toWatch)
+        case .watched:
+            movies = interactor.getMovies(movieState: .watched)
+        }
     }
     
     func linkBuilder<Content: View>(movie: PersonalizedMovie, @ViewBuilder content: () -> Content) -> some View {

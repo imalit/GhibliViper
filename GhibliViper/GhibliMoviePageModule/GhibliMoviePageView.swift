@@ -10,6 +10,7 @@ import SwiftUI
 @available(iOS 15.0, *)
 struct GhibliMoviePageView: View {
     @ObservedObject var presenter: GhibliMoviePagePresenter
+    @State var movieState: MovieState
     
 
     var body: some View {
@@ -27,13 +28,16 @@ struct GhibliMoviePageView: View {
                     )
                 )
             
-//            Picker("state:",
-//                   selection: $movie.state) {
-//                    Text("None").tag(MovieState.none)
-//                    Text("To Watch").tag(MovieState.toWatch)
-//                    Text("Watched").tag(MovieState.watched)
-//            }
-//                   .pickerStyle(.automatic)
+            Picker("state:",
+                   selection: $movieState) {
+                    Text("None").tag(MovieState.none)
+                    Text("To Watch").tag(MovieState.toWatch)
+                    Text("Watched").tag(MovieState.watched)
+            }
+                   .pickerStyle(.automatic)
+                   .onReceive([self.movieState].publisher.first()) { state in
+                       presenter.setState(movieState: state)
+                   }
             
             AsyncImage(
                 url: URL(string: movie.ghibliMovie.image),
