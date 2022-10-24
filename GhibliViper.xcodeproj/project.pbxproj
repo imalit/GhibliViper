@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E027C74B2906C80A0011AAE6 /* GhibliMoviePagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027C74A2906C80A0011AAE6 /* GhibliMoviePagePresenter.swift */; };
+		E027C74D2906C8310011AAE6 /* GhibliMoviePageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027C74C2906C8310011AAE6 /* GhibliMoviePageInteractor.swift */; };
+		E027C74F2906C8D30011AAE6 /* GhibliMoviePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027C74E2906C8D30011AAE6 /* GhibliMoviePageView.swift */; };
+		E027C7512906CFB90011AAE6 /* GhibliHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027C7502906CFB90011AAE6 /* GhibliHomeRouter.swift */; };
 		E080726D290064ED005AF2E2 /* GhibliViperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080726C290064ED005AF2E2 /* GhibliViperApp.swift */; };
 		E080726F290064ED005AF2E2 /* GhibliHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080726E290064ED005AF2E2 /* GhibliHomeView.swift */; };
 		E0807271290064EE005AF2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0807270290064EE005AF2E2 /* Assets.xcassets */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E027C74A2906C80A0011AAE6 /* GhibliMoviePagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliMoviePagePresenter.swift; sourceTree = "<group>"; };
+		E027C74C2906C8310011AAE6 /* GhibliMoviePageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliMoviePageInteractor.swift; sourceTree = "<group>"; };
+		E027C74E2906C8D30011AAE6 /* GhibliMoviePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliMoviePageView.swift; sourceTree = "<group>"; };
+		E027C7502906CFB90011AAE6 /* GhibliHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeRouter.swift; sourceTree = "<group>"; };
 		E0807269290064ED005AF2E2 /* GhibliViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GhibliViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E080726C290064ED005AF2E2 /* GhibliViperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliViperApp.swift; sourceTree = "<group>"; };
 		E080726E290064ED005AF2E2 /* GhibliHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeView.swift; sourceTree = "<group>"; };
@@ -85,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E027C7492906C7DC0011AAE6 /* GhibliMoviePageModule */ = {
+			isa = PBXGroup;
+			children = (
+				E027C74A2906C80A0011AAE6 /* GhibliMoviePagePresenter.swift */,
+				E027C74C2906C8310011AAE6 /* GhibliMoviePageInteractor.swift */,
+				E027C74E2906C8D30011AAE6 /* GhibliMoviePageView.swift */,
+			);
+			path = GhibliMoviePageModule;
+			sourceTree = "<group>";
+		};
 		E0807260290064ED005AF2E2 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +126,7 @@
 		E080726B290064ED005AF2E2 /* GhibliViper */ = {
 			isa = PBXGroup;
 			children = (
+				E027C7492906C7DC0011AAE6 /* GhibliMoviePageModule */,
 				E09B19F12902DC54005AB006 /* GhibliHomeListCellModule */,
 				E080729629006523005AF2E2 /* GhibliHomeModule */,
 				E080726C290064ED005AF2E2 /* GhibliViperApp.swift */,
@@ -150,6 +169,7 @@
 				E080726E290064ED005AF2E2 /* GhibliHomeView.swift */,
 				E080729829006563005AF2E2 /* GhibliHomePresenter.swift */,
 				E080729A290065BE005AF2E2 /* GhibliHomeInteractor.swift */,
+				E027C7502906CFB90011AAE6 /* GhibliHomeRouter.swift */,
 			);
 			path = GhibliHomeModule;
 			sourceTree = "<group>";
@@ -294,13 +314,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E027C7512906CFB90011AAE6 /* GhibliHomeRouter.swift in Sources */,
 				E09B19F72902DD96005AB006 /* GhibliHomeListCellInteractor.swift in Sources */,
 				E09B19F52902DCCD005AB006 /* GhibliHomeListCellPresenter.swift in Sources */,
 				E09B19F32902DC72005AB006 /* GhibliHomeListCellView.swift in Sources */,
 				E080729B290065BE005AF2E2 /* GhibliHomeInteractor.swift in Sources */,
 				E080729D290065E4005AF2E2 /* GhibliGlobalEntity.swift in Sources */,
+				E027C74B2906C80A0011AAE6 /* GhibliMoviePagePresenter.swift in Sources */,
 				E080726F290064ED005AF2E2 /* GhibliHomeView.swift in Sources */,
+				E027C74F2906C8D30011AAE6 /* GhibliMoviePageView.swift in Sources */,
 				E080726D290064ED005AF2E2 /* GhibliViperApp.swift in Sources */,
+				E027C74D2906C8310011AAE6 /* GhibliMoviePageInteractor.swift in Sources */,
 				E099C1D72901CBFB00343CCB /* GhibliService.swift in Sources */,
 				E080729929006563005AF2E2 /* GhibliHomePresenter.swift in Sources */,
 			);

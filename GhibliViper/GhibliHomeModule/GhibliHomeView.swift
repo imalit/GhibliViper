@@ -15,9 +15,11 @@ struct GhibliHomeView: View {
     var body: some View {
         List {
             ForEach(presenter.movies) { movie in
-                let interactor = GhibliHomeListCellInteractor(data: movie)
-                let presenter = GhibliHomeListCellPresenter(interactor: interactor)
-                GhibliHomeListCellView(presenter: presenter)
+                presenter.linkBuilder(movie: movie) {
+                    let interactor = GhibliHomeListCellInteractor(data: movie)
+                    let presenter = GhibliHomeListCellPresenter(interactor: interactor)
+                    GhibliHomeListCellView(presenter: presenter)
+                }
             }
         }.onAppear{
             presenter.fetchMovies(viewState: .all)
