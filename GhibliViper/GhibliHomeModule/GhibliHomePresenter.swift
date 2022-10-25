@@ -20,18 +20,18 @@ enum ViewState {
 @available(iOS 15.0, *)
 protocol GhibliHomePresenterProtocol {
     var interactor: GhibliHomeInteractorProtocol { get set }
-    var router: GhibliHomeRouter { get set }
+    var router: GhibliHomeRouter? { get set }
     func fetchMovies()
 }
 @available(iOS 15.0, *)
 class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
-    var router: GhibliHomeRouter
+    var router: GhibliHomeRouter?
     var interactor: GhibliHomeInteractorProtocol
     @Published var movies = [PersonalizedMovie]()
     private var cancellables = Set<AnyCancellable>()
     private var viewState = ViewState.all
     
-    init(interactor: GhibliHomeInteractorProtocol, router: GhibliHomeRouter) {
+    init(interactor: GhibliHomeInteractorProtocol, router: GhibliHomeRouter? = nil) {
         self.interactor = interactor
         self.router = router
     }
@@ -61,7 +61,7 @@ class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
     }
     
     func linkBuilder<Content: View>(movie: PersonalizedMovie, @ViewBuilder content: () -> Content) -> some View {
-        NavigationLink(destination: router.routeToPage(data: movie)) {
+        NavigationLink(destination: router?.routeToPage(data: movie)) {
             content()
         }
     }

@@ -43,17 +43,16 @@ struct GhibliHomeView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        
-//        let service = GhibliService(
-//            urlString: "")
-//        
-//        let interactor = GhibliHomeInteractor(service: service)
-//        
-//        let presenter = GhibliHomePresenter(
-//            interactor: interactor
-//        )
-//        GhibliHomeView(presenter: presenter, state: .all)
-//    }
-//}
+@available(iOS 15.0, *)
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        let service = MockService()        
+        let interactor = GhibliHomeInteractor(service: service)
+        
+        let presenter = GhibliHomePresenter(
+            interactor: interactor
+        )
+        GhibliHomeView(presenter: presenter, state: .all)
+    }
+}
