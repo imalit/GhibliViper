@@ -22,6 +22,7 @@ protocol GhibliHomePresenterProtocol {
     var interactor: GhibliHomeInteractorProtocol { get set }
     var router: GhibliHomeRouter? { get set }
     func fetchMovies()
+    func refreshView(viewState: ViewState)
 }
 @available(iOS 15.0, *)
 class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {

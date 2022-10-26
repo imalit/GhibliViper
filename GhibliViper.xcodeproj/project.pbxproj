@@ -15,7 +15,7 @@
 		E080726F290064ED005AF2E2 /* GhibliHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080726E290064ED005AF2E2 /* GhibliHomeView.swift */; };
 		E0807271290064EE005AF2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0807270290064EE005AF2E2 /* Assets.xcassets */; };
 		E0807274290064EE005AF2E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0807273290064EE005AF2E2 /* Preview Assets.xcassets */; };
-		E080727E290064EE005AF2E2 /* GhibliViperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080727D290064EE005AF2E2 /* GhibliViperTests.swift */; };
+		E080727E290064EE005AF2E2 /* GhibliHomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080727D290064EE005AF2E2 /* GhibliHomeInteractorTests.swift */; };
 		E0807288290064EE005AF2E2 /* GhibliViperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0807287290064EE005AF2E2 /* GhibliViperUITests.swift */; };
 		E080728A290064EE005AF2E2 /* GhibliViperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0807289290064EE005AF2E2 /* GhibliViperUITestsLaunchTests.swift */; };
 		E080729929006563005AF2E2 /* GhibliHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080729829006563005AF2E2 /* GhibliHomePresenter.swift */; };
@@ -55,7 +55,7 @@
 		E0807270290064EE005AF2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0807273290064EE005AF2E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0807279290064EE005AF2E2 /* GhibliViperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliViperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E080727D290064EE005AF2E2 /* GhibliViperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliViperTests.swift; sourceTree = "<group>"; };
+		E080727D290064EE005AF2E2 /* GhibliHomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeInteractorTests.swift; sourceTree = "<group>"; };
 		E0807283290064EE005AF2E2 /* GhibliViperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliViperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0807287290064EE005AF2E2 /* GhibliViperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliViperUITests.swift; sourceTree = "<group>"; };
 		E0807289290064EE005AF2E2 /* GhibliViperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliViperUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		E080727C290064EE005AF2E2 /* GhibliViperTests */ = {
 			isa = PBXGroup;
 			children = (
-				E080727D290064EE005AF2E2 /* GhibliViperTests.swift */,
+				E080727D290064EE005AF2E2 /* GhibliHomeInteractorTests.swift */,
 			);
 			path = GhibliViperTests;
 			sourceTree = "<group>";
@@ -334,7 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E080727E290064EE005AF2E2 /* GhibliViperTests.swift in Sources */,
+				E080727E290064EE005AF2E2 /* GhibliHomeInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

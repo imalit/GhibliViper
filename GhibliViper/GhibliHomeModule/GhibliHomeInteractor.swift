@@ -16,7 +16,7 @@ protocol GhibliHomeInteractorProtocol {
 
 class GhibliHomeInteractor: GhibliHomeInteractorProtocol {
     var service: ServiceProtocol
-    private var personalizedMovies = [PersonalizedMovie]()
+    var personalizedMovies = [PersonalizedMovie]()
     private var cancellables = Set<AnyCancellable>()
     
     init(service: ServiceProtocol) {
