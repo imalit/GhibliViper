@@ -92,8 +92,10 @@ class GhibliHomeInteractorTests: XCTestCase {
         
         let toWatchMovies = interactor?.filterMovies(movieState: .toWatch)
         let watchedMovies = interactor?.filterMovies(movieState: .watched)
+        let allMovies = interactor?.filterMovies(movieState: nil)
         
         XCTAssert(toWatchMovies?.count == 1)
         XCTAssert(watchedMovies?.count == 0)
+        XCTAssert(allMovies?.count == 2)
     }
 }
