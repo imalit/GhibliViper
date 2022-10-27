@@ -12,7 +12,6 @@ import Combine
 @available(iOS 15.0, *)
 class GhibliHomePresenterTests: XCTestCase {
     
-    var anyCancellable: AnyCancellable?
     var presenter: GhibliHomePresenter?
 
     override func setUpWithError() throws {
@@ -23,7 +22,6 @@ class GhibliHomePresenterTests: XCTestCase {
 
     override func tearDownWithError() throws {
         presenter = nil
-        anyCancellable?.cancel()
     }
 
     func testFetchMovies() throws {
