@@ -28,6 +28,10 @@ class GhibliHomePresenterTests: XCTestCase {
         presenter?.movies = []
         presenter?.fetchMovies()
         XCTAssert(presenter?.movies.count == 2)
+        
+        //testing fetchMovies when presenter.movies is not empty
+        presenter?.fetchMovies()
+        XCTAssert(presenter?.movies.count == 2)
     }
     
     func testRefreshView() throws {
