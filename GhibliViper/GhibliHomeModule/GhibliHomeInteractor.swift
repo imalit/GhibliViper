@@ -11,7 +11,7 @@ import Combine
 protocol GhibliHomeInteractorProtocol {
     var service: ServiceProtocol { get set }
     func fetchMovies() -> AnyPublisher<[PersonalizedMovie], Never>
-    func getMovies(movieState: MovieState?) -> [PersonalizedMovie]
+    func filterMovies(movieState: MovieState?) -> [PersonalizedMovie]
 }
 
 class GhibliHomeInteractor: GhibliHomeInteractorProtocol {
@@ -30,7 +30,7 @@ class GhibliHomeInteractor: GhibliHomeInteractorProtocol {
             .eraseToAnyPublisher()
     }
     
-    func getMovies(movieState: MovieState?) -> [PersonalizedMovie] {
+    func filterMovies(movieState: MovieState?) -> [PersonalizedMovie] {
         guard let movieState = movieState else {
             return personalizedMovies
         }

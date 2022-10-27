@@ -53,11 +53,11 @@ class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
         self.viewState = viewState
         switch viewState {
         case .all:
-            movies = interactor.getMovies(movieState: nil)
+            movies = interactor.filterMovies(movieState: nil)
         case .toWatch:
-            movies = interactor.getMovies(movieState: .toWatch)
+            movies = interactor.filterMovies(movieState: .toWatch)
         case .watched:
-            movies = interactor.getMovies(movieState: .watched)
+            movies = interactor.filterMovies(movieState: .watched)
         }
     }
     

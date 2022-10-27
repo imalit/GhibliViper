@@ -1,4 +1,4 @@
-//
+
 //  GhibliViperTests.swift
 //  GhibliViperTests
 //
@@ -9,42 +9,53 @@ import XCTest
 import Combine
 @testable import GhibliViper
 
-class GhibliHomeInteractorTests: XCTestCase {
+@available(iOS 15.0, *)
+class GhibliHomePresenterTests: XCTestCase {
     
-    let service = MockService()
     var anyCancellable: AnyCancellable?
-    var interactor: GhibliHomeInteractor?
+    var presenter: GhibliHomePresenter?
 
     override func setUpWithError() throws {
-        interactor = GhibliHomeInteractor(service: service)
+        let service = MockService()
+        let interactor = MockInteractor(service: service)
+        presenter = GhibliHomePresenter(interactor: interactor, router: nil)
     }
 
     override func tearDownWithError() throws {
-        interactor = nil
+        presenter = nil
         anyCancellable?.cancel()
     }
 
     func testFetchMovies() throws {
-        let expectation = self.expectation(description: "Interactor fetch movies")
-        var personalizedMovies = [PersonalizedMovie]()
-        
-        anyCancellable = interactor?.fetchMovies().sink(
-            receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    expectation.fulfill()
-                case .failure(_):
-                    break
-                }
-            }, receiveValue: { movies in
-                personalizedMovies = movies
-            })
-        
-        wait(for: [expectation], timeout: 10)
-        XCTAssert(personalizedMovies.count == 4)
+        presenter?.movies = []
+        presenter?.fetchMovies()
+        XCTAssert(presenter?.movies.count == 2)
     }
     
-    func testFilterMovies() throws {
+    func testRefreshView() throws {
+        presenter?.fetchMovies()
+        presenter?.refreshView(viewState: .toWatch)
+
+        
+        XCTAssert(presenter?.movies.count == 1)
+        
+        presenter?.refreshView(viewState: .watched)
+        XCTAssert(presenter?.movies.count == 0)
+        
+        presenter?.refreshView(viewState: .all)
+        XCTAssert(presenter?.movies.count == 2)
+    }
+}
+
+class MockInteractor: GhibliHomeInteractorProtocol {
+    var service: ServiceProtocol
+    var movies = [PersonalizedMovie]()
+    
+    init(service: ServiceProtocol) {
+        self.service = service
+    }
+    
+    func fetchMovies() -> AnyPublisher<[PersonalizedMovie], Never> {
         let ghibliMovie = GhibliElement(
             id: "123",
             title: "Ghibli 1",
@@ -87,13 +98,19 @@ class GhibliHomeInteractorTests: XCTestCase {
         
         let personalizedMovie = PersonalizedMovie(movie: ghibliMovie, state: .none)
         let personalizedMovie2 = PersonalizedMovie(movie: ghibliMovie2, state: .toWatch)
-        let movies = [personalizedMovie, personalizedMovie2]
-        interactor?.personalizedMovies = movies
+        movies = [personalizedMovie, personalizedMovie2]
         
-        let toWatchMovies = interactor?.filterMovies(movieState: .toWatch)
-        let watchedMovies = interactor?.filterMovies(movieState: .watched)
+        return Just(movies).eraseToAnyPublisher()
+    }
+    
+    func filterMovies(movieState: MovieState?) -> [PersonalizedMovie] {
+        guard let movieState = movieState else {
+            return movies
+        }
         
-        XCTAssert(toWatchMovies?.count == 1)
-        XCTAssert(watchedMovies?.count == 0)
+        return movies.filter {
+            $0.state == movieState
+        }
     }
 }
+
