@@ -1,12 +1,6 @@
-
-//  GhibliViperTests.swift
-//  GhibliViperTests
-//
-//  Created by Isiah Marie Ramos Malit on 2022-10-19.
-//
-
 import XCTest
 import Combine
+import SwiftUI
 @testable import GhibliViper
 
 @available(iOS 15.0, *)
@@ -46,6 +40,40 @@ class GhibliHomePresenterTests: XCTestCase {
         
         presenter?.refreshView(viewState: .all)
         XCTAssert(presenter?.movies.count == 2)
+    }
+    
+    func testRouting() throws {
+        let movie = PersonalizedMovie(
+            movie: GhibliElement(
+                id: "123",
+                title: "Ghibli 1",
+                originalTitle: "",
+                originalTitleRomanised: "",
+                image: "",
+                movieBanner: "",
+                ghibliDescription: "",
+                director: "",
+                producer: "",
+                releaseDate: "",
+                runningTime: "",
+                rtScore: "",
+                people: [],
+                species: [],
+                locations: [],
+                vehicles: [],
+                url: ""
+            ),
+            state: .none
+        )
+        
+        let output = presenter?.linkBuilder(
+            movie: movie,
+            content: {
+                Text("Hello World")
+            }
+        )
+        
+        XCTAssertNotNil(output)
     }
 }
 

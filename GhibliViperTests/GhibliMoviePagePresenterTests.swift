@@ -3,30 +3,31 @@ import Combine
 @testable import GhibliViper
 
 @available(iOS 15.0, *)
-class GhibliHomeListCellPresenterTests: XCTestCase {
+class GhibliMoviePagePresenterTests: XCTestCase {
     
-    var presenter: GhibliHomeListCellPresenter?
+    var presenter: GhibliMoviePagePresenter?
 
     override func setUpWithError() throws {
-        let interactor = MockListInteractor()
-        presenter = GhibliHomeListCellPresenter(interactor: interactor)
+        let interactor = MockMovieInteractor()
+        presenter = GhibliMoviePagePresenter(interactor: interactor)
     }
 
     override func tearDownWithError() throws {
         presenter = nil
     }
-
-    func testGetData() throws {
-        let data = presenter?.getData()
+    
+    func testSetData() throws {
+        let movie = presenter?.getData()
+        XCTAssert(movie?.state == MovieState.none)
         
-        XCTAssert(data?.ghibliMovie.title == "Ghibli 1")
-        XCTAssert(data?.state == MovieState.none)
-        XCTAssert(data?.ghibliMovie.id == "123")
+        presenter?.setState(movieState: .toWatch)
+        let updatedMovie = presenter?.getData()
+        XCTAssert(updatedMovie?.state == MovieState.toWatch)
     }
 }
 
-class MockListInteractor: GhibliHomeListCellInteractorProtocol {
-    var data: PersonalizedMovie = PersonalizedMovie(
+class MockMovieInteractor: GhibliMoviePageInteractorProtocol {
+    var data = PersonalizedMovie(
         movie: GhibliElement(
             id: "123",
             title: "Ghibli 1",
@@ -48,5 +49,10 @@ class MockListInteractor: GhibliHomeListCellInteractorProtocol {
         ),
         state: .none
     )
+    
+    func setState(movieState: MovieState) {
+        data.state = movieState
+    }
 }
+
 

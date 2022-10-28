@@ -1,10 +1,3 @@
-//
-//  GhibliViperTests.swift
-//  GhibliViperTests
-//
-//  Created by Isiah Marie Ramos Malit on 2022-10-19.
-//
-
 import XCTest
 import Combine
 @testable import GhibliViper

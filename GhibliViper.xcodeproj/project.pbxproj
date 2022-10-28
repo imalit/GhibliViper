@@ -27,6 +27,10 @@
 		E09B19F32902DC72005AB006 /* GhibliHomeListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09B19F22902DC72005AB006 /* GhibliHomeListCellView.swift */; };
 		E09B19F52902DCCD005AB006 /* GhibliHomeListCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09B19F42902DCCD005AB006 /* GhibliHomeListCellPresenter.swift */; };
 		E09B19F72902DD96005AB006 /* GhibliHomeListCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09B19F62902DD96005AB006 /* GhibliHomeListCellInteractor.swift */; };
+		E0AF12B7290C19280080D73F /* GhibliHomeListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF12B6290C19280080D73F /* GhibliHomeListInteractorTests.swift */; };
+		E0AF12B9290C1BE00080D73F /* GhibliMoviePageInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF12B8290C1BE00080D73F /* GhibliMoviePageInteractorTests.swift */; };
+		E0AF12BB290C268D0080D73F /* GhibliMoviePagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF12BA290C268D0080D73F /* GhibliMoviePagePresenterTests.swift */; };
+		E0AF12BD290C28A10080D73F /* GhibliHomeRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF12BC290C28A10080D73F /* GhibliHomeRouterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,10 @@
 		E09B19F22902DC72005AB006 /* GhibliHomeListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeListCellView.swift; sourceTree = "<group>"; };
 		E09B19F42902DCCD005AB006 /* GhibliHomeListCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeListCellPresenter.swift; sourceTree = "<group>"; };
 		E09B19F62902DD96005AB006 /* GhibliHomeListCellInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeListCellInteractor.swift; sourceTree = "<group>"; };
+		E0AF12B6290C19280080D73F /* GhibliHomeListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeListInteractorTests.swift; sourceTree = "<group>"; };
+		E0AF12B8290C1BE00080D73F /* GhibliMoviePageInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliMoviePageInteractorTests.swift; sourceTree = "<group>"; };
+		E0AF12BA290C268D0080D73F /* GhibliMoviePagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliMoviePagePresenterTests.swift; sourceTree = "<group>"; };
+		E0AF12BC290C28A10080D73F /* GhibliHomeRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliHomeRouterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +164,10 @@
 				E080727D290064EE005AF2E2 /* GhibliHomeInteractorTests.swift */,
 				E05ECF5A290AD11B00CAC583 /* GhibliHomePresenterTests.swift */,
 				E05ECF5C290AF1DE00CAC583 /* GhibliHomeListPresenterTests.swift */,
+				E0AF12B6290C19280080D73F /* GhibliHomeListInteractorTests.swift */,
+				E0AF12B8290C1BE00080D73F /* GhibliMoviePageInteractorTests.swift */,
+				E0AF12BA290C268D0080D73F /* GhibliMoviePagePresenterTests.swift */,
+				E0AF12BC290C28A10080D73F /* GhibliHomeRouterTests.swift */,
 			);
 			path = GhibliViperTests;
 			sourceTree = "<group>";
@@ -340,9 +352,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0AF12B7290C19280080D73F /* GhibliHomeListInteractorTests.swift in Sources */,
+				E0AF12BD290C28A10080D73F /* GhibliHomeRouterTests.swift in Sources */,
 				E05ECF5B290AD11B00CAC583 /* GhibliHomePresenterTests.swift in Sources */,
+				E0AF12B9290C1BE00080D73F /* GhibliMoviePageInteractorTests.swift in Sources */,
 				E05ECF5D290AF1DE00CAC583 /* GhibliHomeListPresenterTests.swift in Sources */,
 				E080727E290064EE005AF2E2 /* GhibliHomeInteractorTests.swift in Sources */,
+				E0AF12BB290C268D0080D73F /* GhibliMoviePagePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
