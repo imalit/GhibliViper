@@ -2,7 +2,6 @@ import XCTest
 import Combine
 @testable import GhibliViper
 
-@available(iOS 15.0, *)
 class GhibliMoviePagePresenterTests: XCTestCase {
     
     var presenter: GhibliMoviePagePresenter?

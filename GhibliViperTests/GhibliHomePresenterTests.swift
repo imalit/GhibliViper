@@ -3,7 +3,6 @@ import Combine
 import SwiftUI
 @testable import GhibliViper
 
-@available(iOS 15.0, *)
 class GhibliHomePresenterTests: XCTestCase {
     
     var presenter: GhibliHomePresenter?

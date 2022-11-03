@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 15.0, *)
 struct GhibliHomeListCellView: View {
     @ObservedObject var presenter: GhibliHomeListCellPresenter
     
@@ -60,7 +59,6 @@ struct GhibliHomeListCellView: View {
     }
 }
 
-@available(iOS 15.0, *)
 struct GhibliHomeListCellView_Previews: PreviewProvider {
     static var previews: some View {
         let ghibliMovie = GhibliElement(

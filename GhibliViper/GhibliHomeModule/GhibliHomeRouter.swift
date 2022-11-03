@@ -12,7 +12,6 @@ import SwiftUI
 //    func routeToPage<Content: View>(data: GhibliElement) -> some View
 //}
 
-@available(iOS 15.0, *)
 class GhibliHomeRouter { //: GhibliHomeRouterProtocol {
     func routeToPage(data: PersonalizedMovie) -> some View {
         let interactor = GhibliMoviePageInteractor(data: data)

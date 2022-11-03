@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 15.0, *)
 struct GhibliHomeView: View {
     @ObservedObject var presenter: GhibliHomePresenter
     @State var state: ViewState
@@ -43,7 +42,6 @@ struct GhibliHomeView: View {
     }
 }
 
-@available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 15.0, *)
 struct GhibliMoviePageView: View {
     @ObservedObject var presenter: GhibliMoviePagePresenter
     @State var movieState: MovieState
@@ -65,7 +64,6 @@ struct GhibliMoviePageView: View {
 
 }
 
-@available(iOS 15.0, *)
 struct GhibliMoviePageView_Previews: PreviewProvider {
     static var previews: some View {
         let ghibliMovie = GhibliElement(
