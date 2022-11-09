@@ -17,7 +17,7 @@ struct GhibliViperApp: App {
 }
 
 struct ContentView: View {
-    
+
     var body: some View {
         NavigationView {
             let urlString = "https://ghibliapi.herokuapp.com/films"

@@ -3,7 +3,7 @@ import Combine
 @testable import GhibliViper
 
 class GhibliMoviePagePresenterTests: XCTestCase {
-    
+
     var presenter: GhibliMoviePagePresenter?
 
     override func setUpWithError() throws {
@@ -14,11 +14,11 @@ class GhibliMoviePagePresenterTests: XCTestCase {
     override func tearDownWithError() throws {
         presenter = nil
     }
-    
+
     func testSetData() throws {
         let movie = presenter?.getData()
         XCTAssert(movie?.state == MovieState.none)
-        
+
         presenter?.setState(movieState: .toWatch)
         let updatedMovie = presenter?.getData()
         XCTAssert(updatedMovie?.state == MovieState.toWatch)
@@ -48,10 +48,8 @@ class MockMovieInteractor: GhibliMoviePageInteractorProtocol {
         ),
         state: .none
     )
-    
+
     func setState(movieState: MovieState) {
         data.state = movieState
     }
 }
-
-

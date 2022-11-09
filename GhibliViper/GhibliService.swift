@@ -16,17 +16,17 @@ protocol ServiceProtocol {
 class GhibliService: ServiceProtocol {
     var session: URLSession
     var urlString: String
-    
+
     init(urlString: String, session: URLSession = URLSession.shared) {
         self.urlString = urlString
         self.session = session
     }
-    
-    func fetchMovies<T>() -> AnyPublisher<T, Error> where T : Decodable {
+
+    func fetchMovies<T>() -> AnyPublisher<T, Error> where T: Decodable {
         guard let url = URL(string: urlString) else {
             fatalError("Invalid URL")
         }
-        
+
         return session.dataTaskPublisher(for: url)
             .receive(on: RunLoop.main)
             .map(\.data)
@@ -172,7 +172,7 @@ class MockService: ServiceProtocol {
                 ]
         """
 
-    func fetchMovies<T>() -> AnyPublisher<T, Error> where T : Decodable {
+    func fetchMovies<T>() -> AnyPublisher<T, Error> where T: Decodable {
         let decodedData: Ghibli?
         do {
             let jsonData = Data(urlString.utf8)
@@ -184,7 +184,7 @@ class MockService: ServiceProtocol {
         } catch {
             decodedData = nil
         }
-        
+
         return Just(decodedData as! T)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()

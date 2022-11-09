@@ -14,11 +14,11 @@ protocol GhibliHomeListCellPresenterProtocol {
 
 class GhibliHomeListCellPresenter: GhibliHomeListCellPresenterProtocol, ObservableObject {
     var interactor: GhibliHomeListCellInteractorProtocol
-    
+
     init(interactor: GhibliHomeListCellInteractorProtocol) {
         self.interactor = interactor
     }
-    
+
     func getData() -> PersonalizedMovie {
         return interactor.data
     }

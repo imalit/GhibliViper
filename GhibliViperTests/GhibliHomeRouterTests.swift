@@ -4,7 +4,7 @@ import SwiftUI
 @testable import GhibliViper
 
 class GhibliHomeRouterTests: XCTestCase {
-    
+
     var router: GhibliHomeRouter?
 
     override func setUpWithError() throws {
@@ -14,7 +14,7 @@ class GhibliHomeRouterTests: XCTestCase {
     override func tearDownWithError() throws {
         router = nil
     }
-    
+
     func testSetData() throws {
         let data = PersonalizedMovie(
             movie: GhibliElement(
@@ -39,9 +39,7 @@ class GhibliHomeRouterTests: XCTestCase {
             state: .none
         )
         let output = router?.routeToPage(data: data)
-        
+
         XCTAssertNotNil(output)
     }
 }
-
-

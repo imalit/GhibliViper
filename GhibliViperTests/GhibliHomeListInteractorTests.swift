@@ -3,7 +3,7 @@ import Combine
 @testable import GhibliViper
 
 class GhibliHomeListCellInteractorTests: XCTestCase {
-    
+
     var interactor: GhibliHomeListCellInteractor?
 
     override func setUpWithError() throws {
@@ -35,7 +35,7 @@ class GhibliHomeListCellInteractorTests: XCTestCase {
     override func tearDownWithError() throws {
         interactor = nil
     }
-    
+
     func testData() throws {
         XCTAssert(interactor?.data.ghibliMovie.id == "123")
     }

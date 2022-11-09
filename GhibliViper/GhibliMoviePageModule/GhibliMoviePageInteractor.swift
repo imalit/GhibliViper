@@ -14,11 +14,11 @@ protocol GhibliMoviePageInteractorProtocol {
 
 class GhibliMoviePageInteractor: GhibliMoviePageInteractorProtocol {
     var data: PersonalizedMovie
-    
+
     init(data: PersonalizedMovie) {
         self.data = data
     }
-    
+
     func setState(movieState: MovieState) {
         data.state = movieState
     }

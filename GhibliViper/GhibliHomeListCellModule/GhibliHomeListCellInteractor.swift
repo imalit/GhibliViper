@@ -13,7 +13,7 @@ protocol GhibliHomeListCellInteractorProtocol {
 
 class GhibliHomeListCellInteractor: GhibliHomeListCellInteractorProtocol {
     var data: PersonalizedMovie
-    
+
     init(data: PersonalizedMovie) {
         self.data = data
     }

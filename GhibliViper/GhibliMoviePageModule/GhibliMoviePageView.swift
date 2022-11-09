@@ -10,11 +10,10 @@ import SwiftUI
 struct GhibliMoviePageView: View {
     @ObservedObject var presenter: GhibliMoviePagePresenter
     @State var movieState: MovieState
-    
 
     var body: some View {
         let movie = presenter.getData()
-        
+
         VStack {
             Text("\(movie.ghibliMovie.title)")
                 .font(.largeTitle)
@@ -26,7 +25,7 @@ struct GhibliMoviePageView: View {
                         trailing: 10
                     )
                 )
-            
+
             Picker("state:",
                    selection: $movieState) {
                     Text("None").tag(MovieState.none)
@@ -37,7 +36,7 @@ struct GhibliMoviePageView: View {
                    .onReceive([self.movieState].publisher.first()) { state in
                        presenter.setState(movieState: state)
                    }
-            
+
             AsyncImage(
                 url: URL(string: movie.ghibliMovie.image),
                 content: { image in
@@ -48,7 +47,7 @@ struct GhibliMoviePageView: View {
             )
                 .scaledToFit()
                 .cornerRadius(10)
-            
+
             Text("\(movie.ghibliMovie.ghibliDescription)")
                 .multilineTextAlignment(.leading)
                 .lineLimit(nil)
@@ -84,15 +83,15 @@ struct GhibliMoviePageView_Previews: PreviewProvider {
             locations: [],
             vehicles: [],
             url: "")
-        
+
         let personalizedMovie = PersonalizedMovie(
             movie: ghibliMovie,
             state: .none
         )
-        
+
         let interactor = GhibliMoviePageInteractor(data: personalizedMovie)
         let presenter = GhibliMoviePagePresenter(interactor: interactor)
-        
+
         GhibliMoviePageView(presenter: presenter, movieState: .toWatch)
     }
 }

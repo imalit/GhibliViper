@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-//protocol GhibliHomeRouterProtocol {
+// protocol GhibliHomeRouterProtocol {
 //    func routeToPage<Content: View>(data: GhibliElement) -> some View
-//}
+// }
 
 class GhibliHomeRouter { //: GhibliHomeRouterProtocol {
     func routeToPage(data: PersonalizedMovie) -> some View {

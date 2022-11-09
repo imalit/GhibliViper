@@ -14,15 +14,15 @@ protocol GhibliMoviePagePresenterProtocol {
 
 class GhibliMoviePagePresenter: GhibliMoviePagePresenterProtocol, ObservableObject {
     var interactor: GhibliMoviePageInteractorProtocol
-    
+
     init(interactor: GhibliMoviePageInteractorProtocol) {
         self.interactor = interactor
     }
-    
+
     func getData() -> PersonalizedMovie {
         return interactor.data
     }
-    
+
     func setState(movieState: MovieState) {
         interactor.setState(movieState: movieState)
     }

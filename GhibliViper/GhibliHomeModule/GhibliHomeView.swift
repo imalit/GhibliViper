@@ -10,13 +10,13 @@ import SwiftUI
 struct GhibliHomeView: View {
     @ObservedObject var presenter: GhibliHomePresenter
     @State var state: ViewState
-    
+
     var body: some View {
         List {
             Text("Title Here")
                 .font(.title)
                 .frame(maxWidth: .infinity, alignment: .center)
-            
+
             HStack {
                 Text("All").onTapGesture {
                     presenter.refreshView(viewState: .all)
@@ -28,7 +28,7 @@ struct GhibliHomeView: View {
                      presenter.refreshView(viewState: .watched)
                  }
             }
-            
+
             ForEach(presenter.movies) { movie in
                 presenter.linkBuilder(movie: movie) {
                     let interactor = GhibliHomeListCellInteractor(data: movie)
@@ -36,7 +36,7 @@ struct GhibliHomeView: View {
                     GhibliHomeListCellView(presenter: presenter)
                 }
             }
-        }.onAppear{
+        }.onAppear {
             presenter.fetchMovies()
         }
     }
@@ -44,10 +44,10 @@ struct GhibliHomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        let service = MockService()        
+
+        let service = MockService()
         let interactor = GhibliHomeInteractor(service: service)
-        
+
         let presenter = GhibliHomePresenter(
             interactor: interactor
         )

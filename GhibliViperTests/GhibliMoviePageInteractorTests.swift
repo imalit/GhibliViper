@@ -3,7 +3,7 @@ import Combine
 @testable import GhibliViper
 
 class GhibliMoviePageInteractorTests: XCTestCase {
-    
+
     var interactor: GhibliMoviePageInteractor?
 
     override func setUpWithError() throws {
@@ -35,10 +35,9 @@ class GhibliMoviePageInteractorTests: XCTestCase {
     override func tearDownWithError() throws {
         interactor = nil
     }
-    
+
     func testSetData() throws {
         interactor?.setState(movieState: .watched)
         XCTAssert(interactor?.data.state == .watched)
     }
 }
-

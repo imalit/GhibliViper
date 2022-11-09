@@ -30,12 +30,12 @@ class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
     @Published var movies = [PersonalizedMovie]()
     private var cancellables = Set<AnyCancellable>()
     private var viewState = ViewState.all
-    
+
     init(interactor: GhibliHomeInteractorProtocol, router: GhibliHomeRouter? = nil) {
         self.interactor = interactor
         self.router = router
     }
-    
+
     func fetchMovies() {
         if movies.isEmpty {
             interactor.fetchMovies().sink(
@@ -47,7 +47,7 @@ class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
             refreshView(viewState: viewState)
         }
     }
-    
+
     func refreshView(viewState: ViewState) {
         self.viewState = viewState
         switch viewState {
@@ -59,7 +59,7 @@ class GhibliHomePresenter: GhibliHomePresenterProtocol, ObservableObject {
             movies = interactor.filterMovies(movieState: .watched)
         }
     }
-    
+
     func linkBuilder<Content: View>(movie: PersonalizedMovie, @ViewBuilder content: () -> Content) -> some View {
         NavigationLink(destination: router?.routeToPage(data: movie)) {
             content()

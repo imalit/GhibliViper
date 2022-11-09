@@ -18,23 +18,23 @@ class GhibliHomeInteractor: GhibliHomeInteractorProtocol {
     var service: ServiceProtocol
     var personalizedMovies = [PersonalizedMovie]()
     private var cancellables = Set<AnyCancellable>()
-    
+
     init(service: ServiceProtocol) {
         self.service = service
     }
-    
+
     func fetchMovies() -> AnyPublisher<[PersonalizedMovie], Never> {
         service.fetchMovies()
             .map { self.setPersonalizedData(movies: $0) }
             .replaceError(with: [])
             .eraseToAnyPublisher()
     }
-    
+
     func filterMovies(movieState: MovieState?) -> [PersonalizedMovie] {
         guard let movieState = movieState else {
             return personalizedMovies
         }
-        
+
         return personalizedMovies.filter {
             $0.state == movieState
         }
@@ -53,4 +53,3 @@ private extension GhibliHomeInteractor {
         return personalizedMovies
     }
 }
-

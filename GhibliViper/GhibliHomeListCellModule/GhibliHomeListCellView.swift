@@ -9,10 +9,10 @@ import SwiftUI
 
 struct GhibliHomeListCellView: View {
     @ObservedObject var presenter: GhibliHomeListCellPresenter
-    
+
     var body: some View {
         let movie = presenter.getData()
-        
+
         VStack {
             HStack {
                 Text("\(movie.ghibliMovie.title)")
@@ -20,7 +20,7 @@ struct GhibliHomeListCellView: View {
                     .lineLimit(nil)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity)
-                    
+
                 AsyncImage(
                     url: URL(string: movie.ghibliMovie.image),
                     content: { image in
@@ -44,7 +44,7 @@ struct GhibliHomeListCellView: View {
                     trailing: 5
                 )
             )
-            
+
             Text("\(movie.ghibliMovie.ghibliDescription)")
                 .lineLimit(nil)
                 .font(.body)
@@ -79,12 +79,12 @@ struct GhibliHomeListCellView_Previews: PreviewProvider {
             locations: [],
             vehicles: [],
             url: "")
-        
+
         let personalizedMovie = PersonalizedMovie(
             movie: ghibliMovie,
             state: .none
         )
-        
+
         let interactor = GhibliHomeListCellInteractor(data: personalizedMovie)
         let presenter = GhibliHomeListCellPresenter(interactor: interactor)
         GhibliHomeListCellView(presenter: presenter)

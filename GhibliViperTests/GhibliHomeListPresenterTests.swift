@@ -3,7 +3,7 @@ import Combine
 @testable import GhibliViper
 
 class GhibliHomeListCellPresenterTests: XCTestCase {
-    
+
     var presenter: GhibliHomeListCellPresenter?
 
     override func setUpWithError() throws {
@@ -17,7 +17,7 @@ class GhibliHomeListCellPresenterTests: XCTestCase {
 
     func testGetData() throws {
         let data = presenter?.getData()
-        
+
         XCTAssert(data?.ghibliMovie.title == "Ghibli 1")
         XCTAssert(data?.state == MovieState.none)
         XCTAssert(data?.ghibliMovie.id == "123")
@@ -48,4 +48,3 @@ class MockListInteractor: GhibliHomeListCellInteractorProtocol {
         state: .none
     )
 }
-

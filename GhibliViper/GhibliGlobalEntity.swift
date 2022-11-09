@@ -12,8 +12,6 @@ import Foundation
 //
 //   let ghibli = try? newJSONDecoder().decode(Ghibli.self, from: jsonData)
 
-import Foundation
-
 // MARK: - GhibliElement
 struct GhibliElement: Codable {
     let id, title, originalTitle, originalTitleRomanised: String
@@ -44,11 +42,10 @@ class PersonalizedMovie: Identifiable {
     let ghibliMovie: GhibliElement
     let id: String
     var state: MovieState
-    
+
     init(movie: GhibliElement, state: MovieState) {
         self.id = movie.id
         self.ghibliMovie = movie
         self.state = state
     }
 }
-
