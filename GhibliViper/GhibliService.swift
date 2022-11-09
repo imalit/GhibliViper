@@ -36,6 +36,7 @@ class GhibliService: ServiceProtocol {
 }
 
 class MockService: ServiceProtocol {
+    // swiftlint: disable line_length
     var urlString: String = """
         [
                 {
@@ -171,6 +172,7 @@ class MockService: ServiceProtocol {
                 }
                 ]
         """
+    // swiftlint: enable line_length
 
     func fetchMovies<T>() -> AnyPublisher<T, Error> where T: Decodable {
         let decodedData: Ghibli?
