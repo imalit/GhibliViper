@@ -18,7 +18,7 @@ steps:
     scheme: ''
     sdk: 'iphoneos'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-    xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
+    xcodeVersion: '13' # Options: 8, 9, 10, 11, 12, default, specifyPath
 - bash: ''
 
 - task: CmdLine@2
