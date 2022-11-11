@@ -12,16 +12,16 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-- task: CmdLine@2
-  inputs:
-     script: 'pod install'
+#- task: CmdLine@2
+#  inputs:
+#     script: 'pod install'
 
-- task: Xcode@5
-  inputs:
-    actions: 'build'
-    sdk: 'iphoneos'
-    xcodeVersion: '13' # Options: 8, 9, 10, 11, 12, default, specifyPath
-
+#- task: Xcode@5
+#  inputs:
+#    actions: 'build'
+#    sdk: 'iphoneos'
+#    xcodeVersion: '13' # Options: 8, 9, 10, 11, 12, default, specifyPath
+#
 - task: CmdLine@2
   inputs:
     script: 'xcodebuild test -project ''GhibliViper.xcworkspace'' -scheme ''GhibliViper'' -destination ''platform=iOS Simulator,name=iPhone 8,OS=15.0'' -skip-testing:''GhibliViperUITests'''
