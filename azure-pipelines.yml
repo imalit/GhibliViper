@@ -25,7 +25,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'xcodebuild test -workspace ''GhibliViper.xcworkspace'' -scheme ''GhibliViper'' -destination ''platform=iOS Simulator,name=iPhone 8,OS=15.0'' -skip-testing:''GhibliViperUITests'''
+    script: 'xcodebuild test -workspace ''GhibliViper/GhibliViper.xcworkspace'' -scheme ''GhibliViper'' -destination ''platform=iOS Simulator,name=iPhone 8,OS=15.0'' -skip-testing:''GhibliViperUITests'''
 
 - task: CmdLine@2
   inputs:
