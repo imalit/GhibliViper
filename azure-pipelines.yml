@@ -29,6 +29,20 @@ steps:
 #  inputs:
 #    script: 'xcodebuild test -workspace ''GhibliViper/GhibliViper.xcworkspace'' -scheme ''GhibliViper'' -destination ''platform=iOS Simulator,name=iPhone 8,OS=15.0'' -skip-testing:''GhibliViperUITests'''
 
-- task: CmdLine@2
+- task: Xcode@5
+  displayName: 'Running tests'
   inputs:
-     script: 'swiftlint lint'
+    actions: 'test'
+    sdk: 'iphonesimulator'
+    configuration: 'Debug'
+    xcWorkspacePath: 'GhibliViper.xcworkspace'
+    scheme: 'GhibliViper'
+    xcodeVersion: 'default'
+    useXcpretty: true
+    publishJUnitResults: true
+    args: '-destination "platform=iOS Simulator,name=iPhone 8,OS=15.0" -skip-testing:"GhibliViperUITests"'
+
+# running linter. Successful!
+#- task: CmdLine@2
+#  inputs:
+#     script: 'swiftlint lint'
