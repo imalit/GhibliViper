@@ -15,7 +15,7 @@ pool:
 
 steps:
 - task: CmdLine@2
- inputs:
+  inputs:
     script: 'pod install'
 
 #- task: Xcode@5
