@@ -1,0 +1,50 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+trigger:
+ branches:
+   include:
+     - '*'
+
+pr: none
+
+pool:
+  vmImage: 'macos-latest'
+
+steps:
+- task: CmdLine@2
+  displayName: 'Installing Pod'
+  inputs:
+    script: 'pod install'
+
+- task: Xcode@5
+  displayName: 'Running Unit Tests'
+  inputs:
+    actions: 'test'
+    sdk: 'iphonesimulator'
+    configuration: 'Debug'
+    xcWorkspacePath: 'GhibliViper.xcworkspace'
+    scheme: 'GhibliViper'
+    xcodeVersion: 'default'
+    useXcpretty: true
+    publishJUnitResults: true
+    args: '-destination "platform=iOS Simulator,name=iPhone 8,OS=15.2" -skip-testing:"GhibliViperUITests"'
+
+- task: CmdLine@2
+  displayName: 'Running SwiftLint'
+  inputs:
+    script: 'swiftlint lint'
+
+#- task: Xcode@5
+#  inputs:
+#    actions: 'build'
+#    sdk: 'iphoneos'
+#    xcodeVersion: '13' # Options: 8, 9, 10, 11, 12, default, specifyPath
+#
+
+#- task: CmdLine@2
+#  inputs:
+#    script: 'xcodebuild test -workspace ''GhibliViper/GhibliViper.xcworkspace'' -scheme ''GhibliViper'' -destination ''platform=iOS Simulator,name=iPhone 8,OS=15.0'' -skip-testing:''GhibliViperUITests'''
+
