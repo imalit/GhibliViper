@@ -36,7 +36,7 @@ steps:
     actions: 'test'
     sdk: 'iphonesimulator'
     configuration: 'Debug'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    xcWorkspacePath: 'GhibliViper.xcworkspace'
     scheme: 'GhibliViper'
     xcodeVersion: 'default'
     useXcpretty: true
