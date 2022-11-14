@@ -40,7 +40,7 @@ steps:
     xcodeVersion: 'default'
     useXcpretty: true
     publishJUnitResults: true
-    args: '-destination "platform=iOS Simulator,name=iPhone 8,OS=15.0" -skip-testing:"GhibliViperUITests"'
+    args: '-destination "platform=iOS Simulator,name=iPhone 8,OS=15.2" -skip-testing:"GhibliViperUITests"'
 
 # running linter. Successful!
 #- task: CmdLine@2
