@@ -14,9 +14,9 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-#- task: CmdLine@2
-#  inputs:
-#     script: 'pod install'
+- task: CmdLine@2
+ inputs:
+    script: 'pod install'
 
 #- task: Xcode@5
 #  inputs:
@@ -29,18 +29,18 @@ steps:
 #  inputs:
 #    script: 'xcodebuild test -workspace ''GhibliViper/GhibliViper.xcworkspace'' -scheme ''GhibliViper'' -destination ''platform=iOS Simulator,name=iPhone 8,OS=15.0'' -skip-testing:''GhibliViperUITests'''
 
-- task: Xcode@5
-  displayName: 'Running tests'
-  inputs:
-    actions: 'test'
-    sdk: 'iphonesimulator'
-    configuration: 'Debug'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-    scheme: 'GhibliViper'
-    xcodeVersion: 'default'
-    useXcpretty: true
-    publishJUnitResults: true
-    args: '-destination "platform=iOS Simulator,name=iPhone 8,OS=15.2" -skip-testing:"GhibliViperUITests"'
+# - task: Xcode@5
+#   displayName: 'Running tests'
+#   inputs:
+#     actions: 'test'
+#     sdk: 'iphonesimulator'
+#     configuration: 'Debug'
+#     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+#     scheme: 'GhibliViper'
+#     xcodeVersion: 'default'
+#     useXcpretty: true
+#     publishJUnitResults: true
+#     args: '-destination "platform=iOS Simulator,name=iPhone 8,OS=15.2" -skip-testing:"GhibliViperUITests"'
 
 # running linter. Successful!
 #- task: CmdLine@2
