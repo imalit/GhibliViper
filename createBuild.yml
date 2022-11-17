@@ -45,11 +45,6 @@ steps:
     xcodeVersion: 'default'
     packageApp: true
 
-#- task: CopyFiles@2
-#  inputs:
-#    Contents: '**/*.ipa'
-#    TargetFolder: '$(Pipeline.Workspace)'
-
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '/Users/runner/work/1/s/output/$(SDK)/$(Configuration)/GhibliViper.ipa'
