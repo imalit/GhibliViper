@@ -23,7 +23,7 @@ steps:
   displayName: 'Installing Apple Provisioning Profile'
   inputs:
     provisioningProfileLocation: 'secureFiles'
-    provProfileSecureFile: 'MovieViperProvisioningProfile.mobileprovision'
+    provProfileSecureFile: 'Movie_Test_Distribution.mobileprovision'
     removeProfile: false
 
 - task: CmdLine@2
