@@ -39,7 +39,7 @@ steps:
     provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
     actions: 'build'
     scheme: 'GhibliViper'
-    sdk: 'iphonesimulator'
+    sdk: 'iphoneos'
     configuration: 'Release'
     xcWorkspacePath: 'GhibliViper.xcworkspace'
     xcodeVersion: 'default'
