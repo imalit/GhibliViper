@@ -43,3 +43,15 @@ steps:
     configuration: 'Release'
     xcWorkspacePath: 'GhibliViper.xcworkspace'
     xcodeVersion: 'default'
+    packageApp: true
+
+- task: CopyFiles@2
+  inputs:
+    Contents: '**/*.ipa'
+    TargetFolder: '$(build.artifactStagingDirectory)'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'MovieViper'
+    publishLocation: 'pipeline'
