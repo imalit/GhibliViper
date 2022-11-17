@@ -14,15 +14,22 @@ pool:
 steps:
 
 - task: InstallAppleCertificate@2
+  displayName: 'Installing Apple Certificate'
   inputs:
     certSecureFile: 'CertificateAndKey.p12'
     certPwd: '$(P12Password)'
 
 - task: InstallAppleProvisioningProfile@1
+  displayName: 'Installing Apple Provisioning Profile'
   inputs:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'MovieViperProvisioningProfile.mobileprovision'
     removeProfile: false
+
+- task: CmdLine@2
+  displayName: 'Installing Pod'
+  inputs:
+    script: 'pod install'
 
 - task: Xcode@5
   displayName: 'Build Project'
