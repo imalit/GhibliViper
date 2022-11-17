@@ -14,7 +14,7 @@ steps:
 - task: InstallAppleCertificate@2
   inputs:
     certSecureFile: 'CertificateAndKey.p12'
-    certPwd: '$(P12password)'
+    certPwd: 'MovieViper'
 
 - task: InstallAppleProvisioningProfile@1
   inputs:
