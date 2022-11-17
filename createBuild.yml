@@ -48,9 +48,9 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: '**/*.ipa'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Pipeline.Workspace)'
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)'
+    targetPath: '$(Pipeline.Workspace)'
     artifact: 'MovieViper'
