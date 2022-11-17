@@ -44,21 +44,11 @@ steps:
     xcWorkspacePath: 'GhibliViper.xcworkspace'
     xcodeVersion: 'default'
     packageApp: true
-#    archivePath: '$(Pipeline.Workspace)'
 
-- task: CmdLine@2
-  inputs:
-    script: 'ls'
-
-- task: CmdLine@2
-  inputs:
-    script: 'pwd'
-
-
-- task: CopyFiles@2
-  inputs:
-    Contents: '**/*.ipa'
-    TargetFolder: '$(Pipeline.Workspace)'
+#- task: CopyFiles@2
+#  inputs:
+#    Contents: '**/*.ipa'
+#    TargetFolder: '$(Pipeline.Workspace)'
 
 - task: PublishPipelineArtifact@1
   inputs:
