@@ -10,11 +10,27 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-- task: Xcode@5
+
+- task: InstallAppleCertificate@2
   inputs:
+    certSecureFile: 'CertificateAndKey.p12'
+    certPwd: '$(P12password)'
+
+- task: InstallAppleProvisioningProfile@1
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'MovieViperProvisioningProfile.mobileprovision'
+    removeProfile: false
+
+- task: Xcode@5
+  displayName: 'Build Project'
+  inputs:
+    signingOption: 'manual'
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
     actions: 'build'
-    scheme: ''
-    sdk: 'iphoneos'
-    configuration: 'Release'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-    xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
+    scheme: 'GhibliViper'
+    sdk: 'iphonesimulator'
+    configuration: 'Debug'
+    xcWorkspacePath: 'GhibliViper.xcworkspace'
+    xcodeVersion: 'default'
