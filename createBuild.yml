@@ -50,14 +50,7 @@ steps:
     Contents: '**/*.ipa'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'MovieViper'
-    publishLocation: 'Container'
-
-#- task: PublishPipelineArtifact@1
-#  inputs:
-#    targetPath: '$(build.artifactStagingDirectory)'
-#    artifact: 'MovieViper'
-#    publishLocation: 'pipeline'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'MovieViper'
