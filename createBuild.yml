@@ -45,6 +45,10 @@ steps:
     xcodeVersion: 'default'
     packageApp: true
 
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
+
 - task: CopyFiles@2
   inputs:
     Contents: '**/*.ipa'
