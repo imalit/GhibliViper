@@ -49,6 +49,11 @@ steps:
   inputs:
     script: 'ls'
 
+- task: CmdLine@2
+  inputs:
+    script: 'dir'
+
+
 - task: CopyFiles@2
   inputs:
     Contents: '**/*.ipa'
