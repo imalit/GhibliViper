@@ -32,5 +32,5 @@ steps:
     scheme: 'GhibliViper'
     sdk: 'iphonesimulator'
     configuration: 'Debug'
-    xcWorkspacePath: 'GhibliViper.xcworkspace'
+    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     xcodeVersion: 'default'
