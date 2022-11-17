@@ -62,5 +62,5 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)/*.ipa'
+    targetPath: '/Users/runner/work/1/output/$(SDK)/$(Configuration)/GhibliViper.ipa'
     artifact: 'MovieViper'
