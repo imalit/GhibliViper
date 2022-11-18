@@ -47,14 +47,14 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '/Users/runner/work/1/s/output/$(SDK)/$(Configuration)/GhibliViper.ipa'
+    targetPath: '$(IPA_PATH)'
     artifact: 'MovieViper'
 
 - task: AppCenterDistribute@3
   inputs:
     serverEndpoint: 'App Center'
     appSlug: 'imalit.proj-gmail.com/MovieViper'
-    appFile: '/Users/runner/work/1/s/output/$(SDK)/$(Configuration)/GhibliViper.ipa'
+    appFile: '$(IPA_PATH)'
     releaseNotesOption: 'input'
     releaseNotesInput: 'Test yml deployment to appcenter'
     destinationType: 'groups'
