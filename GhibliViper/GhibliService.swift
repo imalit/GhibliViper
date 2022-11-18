@@ -175,7 +175,7 @@ class MockService: ServiceProtocol {
     // swiftlint: enable line_length
 
     func fetchMovies<T>() -> AnyPublisher<T, Error> where T: Decodable {
-        
+
         // remove force cast for testing
         // swiftlint: disable force_cast
         let decodedData: Ghibli?
@@ -194,6 +194,6 @@ class MockService: ServiceProtocol {
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
         }
-    
+
     // swiftlint: enable force_cast
 }
