@@ -15,4 +15,4 @@ jobs:
           with:
             azure-devops-project-url: 'https://dev.azure.com/isaymalit/GhibliViper'
             azure-pipeline-name: 'Upload Build on Merge to Main'
-            azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}''
+            azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
