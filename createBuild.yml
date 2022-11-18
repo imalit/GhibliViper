@@ -1,0 +1,60 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+trigger:
+- main
+
+pr: none
+
+pool:
+  vmImage: 'macos-latest'
+
+steps:
+
+- task: InstallAppleCertificate@2
+  displayName: 'Installing Apple Certificate'
+  inputs:
+    certSecureFile: 'CertificateAndKey.p12'
+    certPwd: '$(P12Password)'
+
+- task: InstallAppleProvisioningProfile@1
+  displayName: 'Installing Apple Provisioning Profile'
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'MovieViperProvisioningProfile.mobileprovision'
+    removeProfile: false
+
+- task: CmdLine@2
+  displayName: 'Installing Pod'
+  inputs:
+    script: 'pod install'
+
+- task: Xcode@5
+  displayName: 'Build Project'
+  inputs:
+    signingOption: 'manual'
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
+    actions: 'build'
+    scheme: 'GhibliViper'
+    sdk: 'iphoneos'
+    configuration: 'Release'
+    xcWorkspacePath: 'GhibliViper.xcworkspace'
+    xcodeVersion: 'default'
+    packageApp: true
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(IPA_PATH)'
+    artifact: 'MovieViper'
+
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'App Center'
+    appSlug: 'imalit.proj-gmail.com/MovieViper'
+    appFile: '$(IPA_PATH)'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'Test yml deployment to appcenter'
+    destinationType: 'groups'
